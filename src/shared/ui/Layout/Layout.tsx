@@ -1,18 +1,24 @@
-import {ReactNode} from "react";
-import {Outlet} from "react-router-dom";
-import {classNames} from "shared/lib/classNames/classNames";
+import { ReactNode } from "react";
+import { Outlet } from "react-router-dom";
+import { classNames } from "shared/lib/classNames/classNames";
 
 interface LayoutProps {
     className?: string;
-    children?: ReactNode
+    sidebarSlot?: ReactNode;
+    navbarSlot?: ReactNode;
 }
 
 export const Layout = (props: LayoutProps) => {
-    const {className, children} = props;
+    const { className, sidebarSlot, navbarSlot } = props;
     return (
-        <div className={classNames('app', {}, [className])}>
-            {children}
-            <Outlet />
+        <div className={ classNames('app', {}, [ className ]) }>
+            {navbarSlot && navbarSlot}
+            <div className="content-page">
+                {sidebarSlot && sidebarSlot}
+                <div className="page-wrapper">
+                    <Outlet />
+                </div>
+            </div>
         </div>
     );
 };
