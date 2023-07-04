@@ -6,7 +6,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:i18next/recommended"
     ],
     "overrides": [
     ],
@@ -17,7 +18,8 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "i18next"
     ],
     "rules": {
         "react/jsx-indent": [2, 4],
@@ -27,7 +29,8 @@
         "array-bracket-spacing": ["error", "always"],
         "object-curly-spacing": ["error", "always"],
         "react/jsx-curly-spacing": ["error", "always"],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "i18next/no-literal-string": 2
     },
     "globals": {
         "__IS_DEV__": true

@@ -1,9 +1,11 @@
 .root {
-    height: calc(100vh - var(--navbar-height));
+    position: relative;
+
     width: var(--sidebar-width);
+    height: calc(100vh - var(--navbar-height));
+
     background: var(--inverted-bg-color);
 
-    position: relative;
     transition: width 0.3s;
 }
 
@@ -14,9 +16,11 @@
 .switchers {
     position: absolute;
     bottom: 20px;
+
     display: flex;
-    justify-content: center;
     width: 100%;
+
+    justify-content: center;
 }
 
 .lang {
