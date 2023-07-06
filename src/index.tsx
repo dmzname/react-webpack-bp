@@ -2,10 +2,13 @@ import 'shared/config/i18n/i18n';
 import { createRoot } from "react-dom/client";
 import App from 'app/App';
 import { ThemeProvider } from "app/providers/ThemeProvider";
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
     <ThemeProvider>
-        <App />
+        <ErrorBoundary>
+            <App />
+        </ErrorBoundary>
     </ThemeProvider>
 );

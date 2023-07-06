@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from 'react';
 import { Outlet } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
+import { PageLoader } from 'widgets/PageLoader';
 
 interface LayoutProps {
     className?: string;
@@ -16,7 +17,9 @@ export const Layout = (props: LayoutProps) => {
             <div className="content-page">
                 {sidebarSlot && sidebarSlot}
                 <div className="page-wrapper">
-                    <Outlet />
+                    <Suspense fallback={ <PageLoader /> }>
+                        <Outlet />
+                    </Suspense>
                 </div>
             </div>
         </div>
