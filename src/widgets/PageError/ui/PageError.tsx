@@ -11,15 +11,13 @@ export const PageError = ({ className }: PageErrorProps) => {
     const { t } = useTranslation();
 
     function handleReload() {
-        // eslint-disable-next-line no-restricted-globals
         location.reload();
     }
 
     return (
-        <div className={classNames(cls.root, {}, [className])}>
+        <div className={ classNames(cls.root, {}, [ className ]) }>
             <p>{t('Произошла непредвиденная ошибка.')}</p>
-            {/* eslint-disable-next-line react/jsx-no-bind */}
-            <Button onClick={handleReload}>
+            <Button onClick={ handleReload }>
                 {t('Обновить страницу')}
             </Button>
         </div>

@@ -4,7 +4,6 @@ import { AboutPage } from "pages/AboutPage";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { PageError } from 'widgets/PageError/ui/PageError';
-import { PageLoader } from 'widgets/PageLoader';
 
 export const router = createBrowserRouter([
     {

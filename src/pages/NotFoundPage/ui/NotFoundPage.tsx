@@ -9,7 +9,7 @@ interface NotFoundPageProps {
 export const NotFoundPage = ({ className }: NotFoundPageProps) => {
     const { t } = useTranslation();
     return (
-        <div className={classNames(cls.root, {}, [className])}>
+        <div className={ classNames(cls.root, {}, [ className ]) }>
             {t('Страница не найдена')}
         </div>
     );
