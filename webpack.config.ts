@@ -1,6 +1,6 @@
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import { IBuildEnv, IBuildPaths } from "./config/build/types/config";
-import path from "path";
+import * as path from "path";
 
 export default (env: IBuildEnv) => {
 

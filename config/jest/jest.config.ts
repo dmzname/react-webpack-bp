@@ -4,7 +4,7 @@
  */
 
 import type { Config } from 'jest';
-import * as path from 'path';
+import path from 'path';
 
 const config: Config = {
     clearMocks: true,

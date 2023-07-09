@@ -11,16 +11,21 @@
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"]
-    }
+    },
+    "skipLibCheck": true
   },
+  "include": [
+    "./**/*"
+  ],
+  "files": [
+    "./config/jest/jest.setup.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  },
-  "include": [
-    "./config/jest/jest.setup.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
-  ]
+  }
 }

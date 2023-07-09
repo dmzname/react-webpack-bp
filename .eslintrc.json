@@ -7,10 +7,10 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:i18next/recommended"
+        "plugin:i18next/recommended",
+        "plugin:storybook/recommended"
     ],
-    "overrides": [
-    ],
+    "overrides": [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -22,14 +22,35 @@
         "i18next"
     ],
     "rules": {
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
-        "indent": [2, 4],
+        "react/jsx-indent": [
+            2,
+            4
+        ],
+        "react/jsx-indent-props": [
+            2,
+            4
+        ],
+        "indent": [
+            2,
+            4
+        ],
         "react/react-in-jsx-scope": "off",
-        "array-bracket-spacing": ["error", "always"],
-        "object-curly-spacing": ["error", "always"],
-        "react/jsx-curly-spacing": ["error", "always"],
-        "semi": ["error", "always"],
+        "array-bracket-spacing": [
+            "error",
+            "always"
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "react/jsx-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
         "i18next/no-literal-string": 2
     },
     "globals": {
