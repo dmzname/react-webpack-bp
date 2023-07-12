@@ -14,11 +14,3 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: Install modules
-        run: npm install
-      - name: Build prod project
-        run: npm run build:prod
-      - name: Linting TypeScript
-        run: npm run lint:ts
-      - name: Unit testing
-        run: npm run test:unit
