@@ -1,15 +1,11 @@
 .root {
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .primary {
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .secondary {
-    color: var(--inverted-primary-color);
-}
-
-.red {
-    color: #F00;
+    color: var(--text-secondary);
 }

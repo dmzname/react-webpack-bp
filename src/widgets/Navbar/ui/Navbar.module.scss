@@ -1,20 +1,18 @@
 .root {
+    padding: 20px;
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
     width: 100%;
     height: var(--navbar-height);
-    padding: 20px;
 
+    background: var(--bg-secondary);
+}
+
+.lang-switcher {
+    margin-right: 20px;
+    display: flex;
     align-items: center;
-
-    background: red;
-}
-
-.links {
-    margin-left: auto;
-}
-
-.main-link {
-    margin-right: 15px;
 }
 
 

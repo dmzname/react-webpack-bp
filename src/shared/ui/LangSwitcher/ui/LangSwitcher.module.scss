@@ -1,9 +1,12 @@
-.root {
-    button:not(:last-child) {
-        margin-right: 10px;
-    }
+.btn {
+    padding: 5px 10px;
+
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    color: var(--text-secondary);
 }
 
-.btn {
-    color: var(--inverted-secondary-color);
+.active {
+    border-color: var(--text-secondary);
 }

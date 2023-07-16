@@ -26,12 +26,6 @@ export const Secondary: Story = {
         theme: AppLinkTheme.SECONDARY,
     },
 };
-export const Red: Story = {
-    args: {
-        children: 'Text',
-        theme: AppLinkTheme.RED,
-    },
-};
 
 export const PrimaryDark: Story = {
     args: {
@@ -44,13 +38,6 @@ export const SecondaryDark: Story = {
     args: {
         children: 'Text',
         theme: AppLinkTheme.SECONDARY,
-    },
-    decorators: [ ThemeDecorator(Theme.DARK) ],
-};
-export const RedDark: Story = {
-    args: {
-        children: 'Text',
-        theme: AppLinkTheme.RED,
     },
     decorators: [ ThemeDecorator(Theme.DARK) ],
 };

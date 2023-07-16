@@ -1,22 +1,61 @@
 .root {
     padding: 5px 10px;
+    display: block;
 
-    color: var(--primary-color);
+    border: none;
+
+    color: var(--text-color);
     cursor: pointer;
 }
 
 .clear {
     padding: 0;
 
-    border: none;
     outline: none;
 
     background: none;
 }
 
 .outline {
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--text-color);
 
-    color: var(--primary-color);
+    color: var(--text-color);
     background: none;
+}
+
+.background {
+    fill: var(--white);
+    color: var(--white);
+    background: var(--bg-secondary);
+}
+
+.square {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+
+        display: block;
+    }
+
+    &.size-m {
+        width: var(--btn-square-size-m);
+        height: var(--btn-square-size-m);
+    }
+
+    &.size-l {
+        width: var(--btn-square-size-l);
+        height: var(--btn-square-size-l);
+    }
+
+    &.size-xl {
+        width: var(--btn-square-size-xl);
+        height: var(--btn-square-size-xl);
+    }
 }

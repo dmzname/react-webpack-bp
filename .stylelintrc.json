@@ -8,6 +8,7 @@
     "stylelint-order"
   ],
   "rules": {
+    "font-family-name-quotes": null,
     "declaration-empty-line-before": null,
     "import-notation": null,
     "order/order": [
@@ -46,7 +47,6 @@
         "emptyLineBefore": "always",
         "order": "flexible",
         "properties": [
-          "display",
           "width",
           "min-width",
           "max-width",
@@ -67,14 +67,7 @@
           "padding-right",
           "padding-bottom",
           "padding-left",
-          "box-sizing"
-        ]
-      },
-      {
-        "groupName": "Grid, Flex, Float alignment",
-        "emptyLineBefore": "always",
-        "order": "flexible",
-        "properties": [
+          "display",
           "vertical-align",
           "flex",
           "flex-grow",
@@ -122,7 +115,8 @@
           "overflow-x",
           "overflow-y",
           "overflow-scrolling",
-          "clip"
+          "clip",
+          "box-sizing"
         ]
       },
       {

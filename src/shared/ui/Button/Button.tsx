@@ -2,14 +2,23 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ButtonHTMLAttributes, FC } from 'react';
 import cls from './Button.module.scss';
 
-export enum ThemeButton {
+export enum ButtonTheme {
     CLEAR = 'clear',
     OUTLINE = 'outline',
+    BACKGROUND = 'background',
+}
+
+export enum ButtonSize {
+    L = 'size-l',
+    M = 'size-m',
+    XL = 'size-xl',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;
-    theme?: ThemeButton;
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
 }
 
 export const Button: FC<ButtonProps> = (props) => {
@@ -17,13 +26,19 @@ export const Button: FC<ButtonProps> = (props) => {
         className,
         children,
         theme,
+        square,
+        size = ButtonSize.M,
         ...otherProps
     } = props;
+
+    const mods: Record<string, boolean> = {
+        [cls.square]: square,
+    };
 
     return (
         <button
             type="button"
-            className={ classNames(cls.root, {}, [ className, cls[theme] ]) }
+            className={ classNames(cls.root, mods, [ className, cls[theme], cls[size] ]) }
             { ...otherProps }
         >
             {children}
