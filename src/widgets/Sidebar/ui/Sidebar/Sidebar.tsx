@@ -8,6 +8,7 @@ import LeftArrow from 'shared/assets/icons/angle-left-solid.svg';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { Modal } from "shared/ui/Modal/Modal";
 
 interface SidebarProps {
     className?: string;
@@ -16,6 +17,7 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
     const { t } = useTranslation();
     const [ collapsed, setCollapsed ] = useState(false);
+    const [ isModalOpen, setIsModalOpen ] = useState(false);
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
@@ -50,6 +52,12 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     </span>
                 </AppLink>
             </div>
+            <Button onClick={ () => setIsModalOpen(true) }>
+                {t('Войти')}
+            </Button>
+            <Modal isOpen={ isModalOpen } onClose={ () => setIsModalOpen(false) }>
+                {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda commodi distinctio doloribus eos et eum, incidunt inventore iste mollitia nihil placeat saepe sequi veniam vitae voluptatem, voluptatibus. Iste, quos.')}
+            </Modal>
         </div>
     );
 };
