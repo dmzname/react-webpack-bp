@@ -7,6 +7,7 @@ import RightArrow from 'shared/assets/icons/angle-right-solid.svg';
 import LeftArrow from 'shared/assets/icons/angle-left-solid.svg';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
+import LogInIcon from 'shared/assets/icons/right-to-bracket-solid.svg';
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Modal } from "shared/ui/Modal/Modal";
 
@@ -52,8 +53,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     </span>
                 </AppLink>
             </div>
-            <Button onClick={ () => setIsModalOpen(true) }>
-                {t('Войти')}
+            <Button onClick={ () => setIsModalOpen(true) } className={ cls['login-btn'] } theme={ ButtonTheme.CLEAR }>
+                <LogInIcon className={ cls.icon } />
+                <span className={ cls.link }>
+                    {t('Войти')}
+                </span>
             </Button>
             <Modal isOpen={ isModalOpen } onClose={ () => setIsModalOpen(false) }>
                 {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda commodi distinctio doloribus eos et eum, incidunt inventore iste mollitia nihil placeat saepe sequi veniam vitae voluptatem, voluptatibus. Iste, quos.')}
