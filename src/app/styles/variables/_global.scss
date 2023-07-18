@@ -7,7 +7,7 @@
     --font-line-l: 32px;
     --font-l: 400 var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
-    // Размеры
+    // Sizes
     --navbar-height: 50px;
     --sidebar-width: 250px;
     --sidebar-width-collapsed: 80px;
@@ -19,4 +19,8 @@
     --white: #fff;
     --bg-secondary: #0a1417;
     --text-secondary: #9cacbf;
+    --overlay-color: rgba(0 0 0 / 60%);
+
+    // Z-indexes
+    --modal-z-index: 10;
 }

@@ -1,13 +1,21 @@
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../context/ThemeContext";
-import { FC, ReactNode, useMemo, useState } from "react";
+import { FC, ReactNode, useMemo, useState, useEffect } from "react";
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 interface IThemeProvider {
-    children: ReactNode
+    initialTheme?: Theme
+    children: ReactNode;
 }
 
-export const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
-    const [ theme, setTheme ] = useState<Theme>(defaultTheme);
+export const ThemeProvider: FC<IThemeProvider> = ({ children, initialTheme }) => {
+    const [ theme, setTheme ] = useState<Theme>(initialTheme || defaultTheme);
+
+    useEffect(() => {
+        document.body.classList.add(theme);
+        return () => {
+            document.body.removeAttribute('class');
+        };
+    }, [ theme ]);
 
     const defaultProps = useMemo(() => ({
         theme: theme,
