@@ -7,6 +7,9 @@ import type { Config } from 'jest';
 import path from 'path';
 
 const config: Config = {
+    globals: {
+        __IS_DEV__: true
+    },
     clearMocks: true,
     testEnvironment: "jsdom",
     coveragePathIgnorePatterns: [
@@ -17,8 +20,6 @@ const config: Config = {
     ],
     moduleFileExtensions: [
         "js",
-        "mjs",
-        "cjs",
         "jsx",
         "ts",
         "tsx",
@@ -35,9 +36,6 @@ const config: Config = {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
-    },
-    globals: {
-        __IS_DEV__: true
     },
 
     // All imported modules in your tests should be mocked automatically

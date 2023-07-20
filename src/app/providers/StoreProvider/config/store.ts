@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
+// Не пойму почему здесь не работает каороткий путь
+import { counterReducer } from '../../../../entities/Counter';
 import { IRootState } from "../types/rootState";
-import { counterReducer } from "entities/Counter";
 
 export function createReduxStore(initialState?: IRootState) {
-    return configureStore({
+    return configureStore<IRootState>({
         reducer: {
-            counter: counterReducer
+            counter: counterReducer,
         },
         devTools: __IS_DEV__,
         preloadedState: initialState,
