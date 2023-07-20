@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-// Не пойму почему здесь не работает каороткий путь
-import { counterReducer } from '../../../../entities/Counter';
+// Не пойму почему здесь не работает каороткий путь именно с папкой "entities" если переименовываю "_entities" или любую другую все работает...
+import { counterReducer } from '_entities/Counter';
 import { IRootState } from "../types/rootState";
 
 export function createReduxStore(initialState?: IRootState) {
