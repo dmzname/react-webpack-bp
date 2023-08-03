@@ -3,15 +3,20 @@ import { Input } from "shared/ui/Input/Input";
 
 const meta: Meta<typeof Input> = {
     title: 'shared/Input',
-    component: Input,
+    component: Input
 };
 
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-export const Primary: Story = {
+export const PrimaryWithValue: Story = {
     args: {
-        placeholder: 'Type text',
-        value: '123123',
+        value: 'John Doe',
+    }
+};
+
+export const PrimaryWithPlaceholder: Story = {
+    args: {
+        placeholder: 'Write your Name!'
     }
 };

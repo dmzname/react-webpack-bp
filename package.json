@@ -12,9 +12,10 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:ui": "npx chromatic --project-token=chpt_aa78bafe13cd258 -b storybook:build",
+    "test:ui:ok": "npx chromatic --project-token=chpt_aa78bafe13cd258 --auto-accept-changes -b storybook:build",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "chromatic": "npx chromatic --project-token=chpt_aa78bafe13cd258 -b storybook:build",
     "prepare": "husky install"
   },
   "license": "ISC",

@@ -1,8 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import cls from './LoginForm.module.scss';
+
 // import React, { useState } from "react";
 
 interface LoginFormProps {
@@ -45,6 +46,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
                 // value={ value.password }
             />
             <Button
+                theme={ ButtonTheme.OUTLINE }
                 className={ cls['login-btn'] }
             >
                 {t('Войти')}

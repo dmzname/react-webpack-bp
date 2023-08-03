@@ -1,6 +1,7 @@
 .root {
-    border-bottom: 1px solid red;
-    outline: none;
+    padding: 10px 0;
+
+    border-bottom: 1px solid var(--text-color);
 
     background-color: transparent;
 }
