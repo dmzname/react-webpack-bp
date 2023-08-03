@@ -1,13 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit';
-// Не пойму почему здесь не работает каороткий путь именно с папкой "_entities" если переименовываю "_entities" или любую другую все работает...
-import { counterReducer } from 'entities/Counter';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+// Не могу понять почему не срабатывает аьсолбтный путь.
+import { counterReducer } from '../../../../entities/Counter';
+import { userReducer } from "../../../../entities/User";
 import { IRootState } from '../types/rootState';
+
+const rootReducers: ReducersMapObject<IRootState> = {
+    counter: counterReducer,
+    user: userReducer
+};
 
 export function createReduxStore(initialState?: IRootState) {
     return configureStore<IRootState>({
-        reducer: {
-            counter: counterReducer,
-        },
+        reducer: rootReducers,
         devTools: __IS_DEV__,
         preloadedState: initialState,
     });

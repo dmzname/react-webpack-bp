@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000",
+    "start:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
@@ -13,7 +14,8 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "chromatic": "npx chromatic --project-token=chpt_aa78bafe13cd258 -b storybook:build"
+    "chromatic": "npx chromatic --project-token=chpt_aa78bafe13cd258 -b storybook:build",
+    "prepare": "husky install"
   },
   "license": "ISC",
   "devDependencies": {
@@ -52,6 +54,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.6.0",
     "jest-environment-jsdom": "^29.6.0",
+    "json-server": "^0.17.3",
     "mini-css-extract-plugin": "^2.7.6",
     "regenerator-runtime": "^0.13.11",
     "sass": "^1.63.6",
@@ -71,7 +74,8 @@
     "webpack": "^5.88.0",
     "webpack-bundle-analyzer": "^4.9.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

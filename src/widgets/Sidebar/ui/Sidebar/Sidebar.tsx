@@ -9,7 +9,7 @@ import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import LogInIcon from 'shared/assets/icons/right-to-bracket-solid.svg';
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { Modal } from "shared/ui/Modal/Modal";
+import { LoginModal } from "features/AuthByUsername";
 
 interface SidebarProps {
     className?: string;
@@ -20,7 +20,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
     const [ collapsed, setCollapsed ] = useState(false);
     const [ isModalOpen, setIsModalOpen ] = useState(false);
 
-    const onToggle = () => {
+    const onToggleSidebar = () => {
         setCollapsed((prev) => !prev);
     };
 
@@ -32,7 +32,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             <Button
                 className={ cls['collapse-btn'] }
                 data-testid="sidebar-toggle"
-                onClick={ onToggle }
+                onClick={ onToggleSidebar }
                 theme={ ButtonTheme.BACKGROUND }
                 square
                 size={ ButtonSize.L }
@@ -59,9 +59,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     {t('Войти')}
                 </span>
             </Button>
-            <Modal isOpen={ isModalOpen } onClose={ () => setIsModalOpen(false) }>
-                {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda commodi distinctio doloribus eos et eum, incidunt inventore iste mollitia nihil placeat saepe sequi veniam vitae voluptatem, voluptatibus. Iste, quos.')}
-            </Modal>
+            <LoginModal isOpen={ isModalOpen } onClose={ () => setIsModalOpen(false) } />
         </div>
     );
 };
