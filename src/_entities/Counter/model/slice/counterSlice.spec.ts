@@ -1,4 +1,4 @@
-import { ICounterSchema } from 'entities/Counter';
+import { ICounterSchema } from '_entities/Counter';
 import { counterActions, counterReducer } from './counterSlice';
 
 describe('counterSlice.spec', () => {

@@ -6,10 +6,10 @@ import { IRootState } from "app/providers/StoreProvider";
 
 interface IStoreProviderProps {
     children?: ReactNode;
-    initialState?: DeepPartial<IRootState>
+    initialState?: DeepPartial<IRootState>;
 }
 
-export const StoreProvider = ({ children, initialState }: IStoreProviderProps) =>  {
+export const StoreProvider = ({ children, initialState }: IStoreProviderProps) => {
     const store = createReduxStore(initialState as IRootState);
 
     return (

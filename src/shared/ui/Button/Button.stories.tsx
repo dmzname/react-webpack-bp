@@ -34,7 +34,7 @@ export const Background: Story = {
 
 export const BackgroundSquare: Story = {
     args: {
-        children: <LeftArrow />,
+        children: <LeftArrow/>,
         theme: ButtonTheme.BACKGROUND,
         square: true,
     },
@@ -42,7 +42,7 @@ export const BackgroundSquare: Story = {
 
 export const BackgroundSquareSizeL: Story = {
     args: {
-        children: <LeftArrow />,
+        children: <LeftArrow/>,
         theme: ButtonTheme.BACKGROUND,
         square: true,
         size: ButtonSize.L
@@ -51,7 +51,7 @@ export const BackgroundSquareSizeL: Story = {
 
 export const BackgroundSquareSizeXL: Story = {
     args: {
-        children: <LeftArrow />,
+        children: <LeftArrow/>,
         theme: ButtonTheme.BACKGROUND,
         square: true,
         size: ButtonSize.XL
@@ -69,6 +69,23 @@ export const OutlineDarkTheme: Story = {
     args: {
         children: 'Click',
         theme: ButtonTheme.OUTLINE,
+    },
+    decorators: [ ThemeDecorator(Theme.DARK) ],
+};
+
+export const Disabled: Story = {
+    args: {
+        children: 'Click',
+        theme: ButtonTheme.OUTLINE,
+        disabled: true
+    },
+};
+
+export const DisabledDarkTheme: Story = {
+    args: {
+        children: 'Click',
+        theme: ButtonTheme.OUTLINE,
+        disabled: true
     },
     decorators: [ ThemeDecorator(Theme.DARK) ],
 };

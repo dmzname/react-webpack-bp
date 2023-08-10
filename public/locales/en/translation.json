@@ -6,6 +6,11 @@
   "Страница не найдена": "Page not found",
   "Переключиться": "Switch",
   "Войти": "Log in",
-  "Введите username": "Введите username",
-  "Введите пароль": "Введите пароль"
+  "Введите имя пользователя": "Enter username",
+  "Введите пароль": "Enter password",
+  "Ошибка, неверный имя или пароль": {
+    "": "Error, invalid username or password."
+  },
+  "Выйти": "Log out",
+  "Форма авторизации": "Authorization form"
 }

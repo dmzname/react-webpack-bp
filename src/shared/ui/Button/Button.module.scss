@@ -6,6 +6,10 @@
 
     color: var(--text-color);
     cursor: pointer;
+
+    &[disabled] {
+        opacity: .5;
+    }
 }
 
 .clear {
