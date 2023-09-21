@@ -20,14 +20,14 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPl
         }),
     ];
 
-    if(isDev) {
+    if (isDev) {
         plugins.push(
             new webpack.HotModuleReplacementPlugin(),
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,
-            }),
+            })
         );
     }
-    
+
     return plugins;
 }

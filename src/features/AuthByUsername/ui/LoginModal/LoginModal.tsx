@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Modal } from 'shared/ui/Modal/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginFormAsync } from "../LoginForm/LoginForm.async";
 
 interface ILoginModalProps {
     className?: string;
@@ -18,7 +18,9 @@ export const LoginModal = (props: ILoginModalProps) => {
             onClose={ onClose }
             className={ classNames('', {}, [ className ]) }
         >
-            <LoginForm />
+            { //Понять почему не размонтируется форма
+                isOpen && <LoginFormAsync/>
+            }
         </Modal>
     );
 };
