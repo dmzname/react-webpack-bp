@@ -1,28 +1,36 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './Sidebar.module.scss';
 import { useTranslation } from 'react-i18next';
 import RightArrow from 'shared/assets/icons/angle-right-solid.svg';
 import LeftArrow from 'shared/assets/icons/angle-left-solid.svg';
-import AboutIcon from 'shared/assets/icons/about-20-20.svg';
-import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import LogInIcon from 'shared/assets/icons/right-to-bracket-solid.svg';
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { LoginModal } from "features/AuthByUsername";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "_entities/User";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
+import { SidebarItemsList } from "../../model/items";
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const { t } = useTranslation();
     const [ collapsed, setCollapsed ] = useState(false);
     const [ isModalOpen, setIsModalOpen ] = useState(false);
     const authData = useSelector(getUserAuthData);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
+
+    const itemsList = useMemo(() => SidebarItemsList.map((item) => (
+        <SidebarItem
+            item={ item }
+            collapsed={ collapsed }
+            key={ item.path }
+        />
+    )), [ collapsed ]);
 
     const onToggleSidebar = () => {
         setCollapsed((prev) => !prev);
@@ -49,18 +57,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 {collapsed ? <RightArrow className={ cls.arrow }/> : <LeftArrow className={ cls.arrow }/>}
             </Button>
             <div className={ cls.items }>
-                <AppLink theme={ AppLinkTheme.SECONDARY } to="/" className={ cls.item }>
-                    <MainIcon className={ cls.icon }/>
-                    <span className={ cls.link }>
-                        {t('Главная')}
-                    </span>
-                </AppLink>
-                <AppLink theme={ AppLinkTheme.SECONDARY } to="/about" className={ cls.item }>
-                    <AboutIcon className={ cls.icon }/>
-                    <span className={ cls.link }>
-                        {t('О сайте')}
-                    </span>
-                </AppLink>
+                {itemsList}
             </div>
             {authData ? (
                 <Button onClick={ logoutHandler } className={ cls['login-btn'] } theme={ ButtonTheme.CLEAR }>
@@ -82,4 +79,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
             )}
         </div>
     );
-};
+});

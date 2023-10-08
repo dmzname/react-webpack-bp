@@ -18,9 +18,7 @@ export const LoginModal = (props: ILoginModalProps) => {
             onClose={ onClose }
             className={ classNames('', {}, [ className ]) }
         >
-            { //Понять почему не размонтируется форма
-                isOpen && <LoginFormAsync/>
-            }
+            <LoginFormAsync onSuccess={ onClose }/>
         </Modal>
     );
 };

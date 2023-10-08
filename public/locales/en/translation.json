@@ -1,6 +1,7 @@
 {
   "Главная": "Home",
   "О сайте": "About",
+  "Профиль": "Profile",
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Обновить страницу": "Reload page",
   "Страница не найдена": "Page not found",
@@ -12,5 +13,6 @@
     "": "Error, invalid username or password."
   },
   "Выйти": "Log out",
-  "Форма авторизации": "Authorization form"
+  "Форма авторизации": "Authorization form",
+  "PROFILE PAGE": "PROFILE PAGE"
 }
