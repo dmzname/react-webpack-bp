@@ -7,10 +7,12 @@ export const AppLayout = () => {
     const { theme } = useTheme();
 
     return (
+
         <Layout
             className={ theme }
-            navbarSlot={ <Navbar /> }
-            sidebarSlot={ <Sidebar /> }
+            navbarSlot={ <Navbar/> }
+            sidebarSlot={ <Sidebar/> }
         />
+
     );
 };

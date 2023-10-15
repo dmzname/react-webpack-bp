@@ -1,7 +1,6 @@
 import { Provider } from "react-redux";
 import { createReduxStore } from "../config/store";
 import { ReactNode } from "react";
-import { DeepPartial } from "@reduxjs/toolkit";
 import { IRootState } from "app/providers/StoreProvider";
 
 interface IStoreProviderProps {
@@ -10,6 +9,7 @@ interface IStoreProviderProps {
 }
 
 export const StoreProvider = ({ children, initialState }: IStoreProviderProps) => {
+    //const navigate = useNavigate();
     const store = createReduxStore(initialState as IRootState);
 
     return (

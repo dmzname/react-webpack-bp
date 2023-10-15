@@ -1,8 +1,7 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { IRootState } from 'app/providers/StoreProvider';
 import { getLoginError } from './getLoginError';
 
-describe('getLoginError.test', () => {
+describe('getProfileError.test', () => {
     it('should return error', () => {
         const state: DeepPartial<IRootState> = {
             loginForm: {

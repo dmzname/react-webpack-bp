@@ -1,8 +1,7 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { IRootState } from 'app/providers/StoreProvider';
 import { getLoginIsLoading } from './getLoginIsLoading';
 
-describe('getLoginIsLoading.test', () => {
+describe('getProfileIsLoading.test', () => {
     it('should return is true', () => {
         const state: DeepPartial<IRootState> = {
             loginForm: {

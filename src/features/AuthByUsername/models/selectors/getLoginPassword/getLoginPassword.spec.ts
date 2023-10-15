@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { IRootState } from 'app/providers/StoreProvider';
 import { getLoginPassword } from './getLoginPassword';
 

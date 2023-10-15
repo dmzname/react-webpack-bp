@@ -1,6 +1,7 @@
 import { IUserSchema } from "_entities/User";
 import { ILoginSchema } from "features/AuthByUsername/models/types/loginSchema";
 import { IProfileSchema } from "_entities/Profile";
+import { AxiosInstance } from "axios";
 
 export interface IRootState {
     user: IUserSchema;
@@ -11,3 +12,7 @@ export interface IRootState {
 }
 
 export type RootStateKey = keyof IRootState;
+
+export interface IThunkExtraArg {
+    api: AxiosInstance;
+}

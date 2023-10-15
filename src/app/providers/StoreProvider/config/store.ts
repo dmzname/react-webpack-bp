@@ -1,19 +1,31 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { CombinedState, configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from "_entities/User";
 import { IRootState } from '../types/rootState';
 import { createReducerManager } from "app/providers/StoreProvider/config/reducerManager";
+import { axiosInstance } from "shared/api/api";
+import { Reducer } from "redux";
 
 const rootReducers: ReducersMapObject<IRootState> = {
     user: userReducer,
 };
 
-export function createReduxStore(initialState?: IRootState) {
+export function createReduxStore(
+    initialState?: IRootState
+) {
     const reducerManager = createReducerManager(rootReducers);
 
-    const store = configureStore<IRootState>({
-        reducer: reducerManager.reduce,
+
+    const store = configureStore({
+        reducer: reducerManager.reduce as Reducer<CombinedState<IRootState>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
+        middleware: getDefaultMiddleware => getDefaultMiddleware({
+            thunk: {
+                extraArgument: {
+                    api: axiosInstance
+                }
+            }
+        })
     });
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

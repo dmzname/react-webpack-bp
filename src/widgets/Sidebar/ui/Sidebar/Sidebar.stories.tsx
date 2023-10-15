@@ -10,6 +10,7 @@ const meta: Meta<typeof Sidebar> = {
     decorators: [ StoreDecorator(
         {
             loginForm: {
+                isLoading: false,
                 password: '123',
                 username: 'qwerty',
             }

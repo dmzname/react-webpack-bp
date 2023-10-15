@@ -1,68 +1,69 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "jest": true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:i18next/recommended",
+    "plugin:storybook/recommended"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:i18next/recommended",
-        "plugin:storybook/recommended"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "i18next",
+    "react-hooks"
+  ],
+  "rules": {
+    "react/jsx-indent": [
+      2,
+      4
     ],
-    "overrides": [],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint",
-        "i18next",
-        "react-hooks"
+    "react/jsx-indent-props": [
+      2,
+      4
     ],
-    "rules": {
-        "react/jsx-indent": [
-            2,
-            4
-        ],
-        "react/jsx-indent-props": [
-            2,
-            4
-        ],
-        "indent": [
-            2,
-            4
-        ],
-        "react/react-in-jsx-scope": "off",
-        "array-bracket-spacing": [
-            "error",
-            "always"
-        ],
-        "object-curly-spacing": [
-            "error",
-            "always"
-        ],
-        "react/jsx-curly-spacing": [
-            "error",
-            "always"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "i18next/no-literal-string": 2,
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error",
-        "@typescript-eslint/no-var-requires": "warn",
-        "react/display-name": "warn"
-    },
-    "globals": {
-        "__IS_DEV__": true
-    }
+    "indent": [
+      2,
+      4
+    ],
+    "react/react-in-jsx-scope": "off",
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "react/jsx-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "i18next/no-literal-string": 2,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "@typescript-eslint/no-var-requires": "warn",
+    "react/display-name": "warn"
+  },
+  "globals": {
+    "__IS_DEV__": true,
+    "__API__": true
+  }
 }

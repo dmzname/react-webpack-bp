@@ -4,8 +4,8 @@ import { LoginFormAsync } from "../LoginForm/LoginForm.async";
 
 interface ILoginModalProps {
     className?: string;
-    isOpen?: boolean;
-    onClose?: () => void;
+    isOpen: boolean;
+    onClose: () => void;
 }
 
 export const LoginModal = (props: ILoginModalProps) => {
