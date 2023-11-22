@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import React, { InputHTMLAttributes, memo, useEffect, useRef, } from 'react';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>
 
 interface InputProps extends HTMLInputProps {
     className?: string;
@@ -12,6 +12,7 @@ interface InputProps extends HTMLInputProps {
     type?: string;
     name: string;
     placeholder?: string;
+    readonly?: boolean;
 }
 
 // eslint-disable-next-line react/display-name
@@ -27,6 +28,7 @@ export const Input = memo((props: InputProps) => {
         placeholder,
         autofocus,
         name,
+        readonly,
         ...otherProps
     } = props;
 
@@ -44,11 +46,12 @@ export const Input = memo((props: InputProps) => {
         <input
             ref={ ref }
             type={ type }
+            readOnly={ readonly }
             name={ name }
             placeholder={ placeholder }
             value={ value }
             onChange={ onChangeHandler }
-            className={ classNames(cls.root, {}, [ className ]) }
+            className={ classNames(cls.root, { [cls.readonly]: readonly }, [ className ]) }
             { ...otherProps }
         />
     );

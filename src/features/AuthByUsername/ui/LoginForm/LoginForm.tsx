@@ -15,6 +15,7 @@ import { getLoginError } from "../../models/selectors/getLoginError/getLoginErro
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
+
 export interface ILoginFormProps {
     className?: string;
     onSuccess?: () => void;
@@ -50,6 +51,7 @@ const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
 
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess?.();
+            location.reload();
         }
     }, [ onSuccess, dispatch, username, password ]);
 

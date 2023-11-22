@@ -12,6 +12,7 @@ import { getUserAuthData, userActions } from "_entities/User";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { SidebarItemsList } from "../../model/items";
+import { useNavigate } from "react-router";
 
 interface SidebarProps {
     className?: string;
@@ -23,6 +24,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const [ isModalOpen, setIsModalOpen ] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const itemsList = useMemo(() => SidebarItemsList.map((item) => (
         <SidebarItem
@@ -39,7 +41,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const logoutHandler = useCallback(() => {
         dispatch(userActions.logoutUser());
         setIsModalOpen(false);
-    }, [ dispatch ]);
+        navigate('/');
+    }, [ dispatch, navigate ]);
 
     return (
         <div
