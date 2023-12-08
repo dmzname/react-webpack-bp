@@ -4,9 +4,11 @@ import { IRootState } from '../types/rootState';
 import { createReducerManager } from "app/providers/StoreProvider/config/reducerManager";
 import { axiosInstance } from "shared/api/api";
 import { Reducer } from "redux";
+import { editProfileReducer } from "features/EditProfileData";
 
 const rootReducers: ReducersMapObject<IRootState> = {
     user: userReducer,
+    editProfile: editProfileReducer
 };
 
 export function createReduxStore(

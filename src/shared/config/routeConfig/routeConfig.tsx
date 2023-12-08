@@ -33,7 +33,7 @@ export const routeConfig: Record<AppRoutes, RouteObject> = {
     },
     [AppRoutes.PROFILE]: {
         path: RoutePath.profile,
-        element: <ProfilePage/>,
+        element: <ProfilePage/>
     },
 
     // last route

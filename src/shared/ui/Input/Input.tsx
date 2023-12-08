@@ -10,7 +10,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     autofocus?: boolean;
     type?: string;
-    name: string;
+    name?: string;
     placeholder?: string;
     readonly?: boolean;
 }

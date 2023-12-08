@@ -12,6 +12,9 @@ import { DynamicModuleLoader, ReducersList } from "shared/lib/components/Dynamic
 import { memo, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
+import { editProfileActions } from "features/EditProfileData";
+import { getUserAuthData } from "_entities/User";
+import { NotFoundPage } from "pages/NotFoundPage";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -24,14 +27,26 @@ interface ProfilePageProps {
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const isAuth = useSelector(getUserAuthData);
 
     const profileData = useSelector(getProfileData);
     const profileError = useSelector(getProfileError);
     const profileIsLoading = useSelector(getProfileIsLoading);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [ dispatch ]);
+
+    useEffect(() => {
+        if (profileData)
+            dispatch(editProfileActions.initProfile(profileData));
+    }, [ dispatch, profileData ]);
+
+    if (!isAuth) {
+        return <NotFoundPage/>;
+    }
 
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount>

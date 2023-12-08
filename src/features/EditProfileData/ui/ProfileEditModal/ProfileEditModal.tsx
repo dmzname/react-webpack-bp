@@ -19,7 +19,7 @@ export const ProfileEditModal = ({ className, isOpen, onClose }: IProfileEditMod
             onClose={ onClose }
             className={ classNames('', {}, [ className ]) }
         >
-            <ProfileEditForm/>
+            <ProfileEditForm onClose={ onClose }/>
         </Modal>
     );
 };

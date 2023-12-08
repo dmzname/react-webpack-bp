@@ -17,5 +17,5 @@ export default (env: IBuildEnv) => {
         src: path.resolve(__dirname, 'src')
     };
 
-    return buildWebpackConfig({ mode, paths, isDev, port: PORT, apiUrl });
+    return buildWebpackConfig({ mode, paths, isDev, port: PORT, apiUrl, project: 'frontend' });
 };

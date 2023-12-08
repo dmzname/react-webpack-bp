@@ -4,12 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Edit from 'shared/assets/icons/pen-solid.svg';
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
-import { getProfileReadonly, IProfile, profileActions } from "_entities/Profile";
+import { IProfile, profileActions } from "_entities/Profile";
 import { Loader } from "shared/ui/Loader";
-import { useSelector } from "react-redux";
 import { useCallback, useState } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { ProfileEditModal } from '_entities/Profile/ui/ProfileEditModal/ProfileEditModal';
+import { ProfileEditModal } from 'features/EditProfileData';
 
 interface IProfileCardProps {
     className?: string;
@@ -27,17 +26,11 @@ export const ProfileCard = (props: IProfileCardProps) => {
     } = props;
     const { t } = useTranslation('profile');
     const [ isEditModalOpen, setIsEditModalOpen ] = useState(false);
-
-    const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
 
     const onEdit = useCallback(() => {
         setIsEditModalOpen(true);
         dispatch(profileActions.setReadonly(false));
-    }, [ dispatch ]);
-
-    const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true));
     }, [ dispatch ]);
 
     if (profileIsLoading) {
