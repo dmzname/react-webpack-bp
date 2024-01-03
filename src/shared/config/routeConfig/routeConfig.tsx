@@ -3,6 +3,7 @@ import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { RouteObject } from "react-router";
+import { RequireAuth } from "app/providers/routes/RequireAuth";
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -33,7 +34,8 @@ export const routeConfig: Record<AppRoutes, RouteObject> = {
     },
     [AppRoutes.PROFILE]: {
         path: RoutePath.profile,
-        element: <ProfilePage/>
+        element: <RequireAuth children={ <ProfilePage/> }/> // eslint-disable-line react/no-children-prop
+
     },
 
     // last route
