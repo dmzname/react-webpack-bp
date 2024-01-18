@@ -1,18 +1,14 @@
-import { useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from "./providers/routes/routes";
-import { useDispatch } from "react-redux";
 import { userActions } from "_entities/User";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 const App = () => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(userActions.initAuthData());
-    }, [ dispatch ]);
+    const dispatch = useAppDispatch();
+    const result = dispatch(userActions.initAuthData());
 
     return (
-        <RouterProvider router={ router }/>
+        result ? <RouterProvider router={ router }/> : null
     );
 };
 
