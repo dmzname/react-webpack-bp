@@ -3,14 +3,18 @@ import { ILoginSchema } from "features/AuthByUsername/models/types/loginSchema";
 import { IProfileSchema } from "_entities/Profile";
 import { AxiosInstance } from "axios";
 import { IProfileData } from "features/EditProfileData";
+import { IArticleDetailsSchema } from "_entities/Article";
+import { IArticleCommentsSchema } from "features/ArticleCommentList";
 
 export interface IRootState {
     user: IUserSchema;
     editProfile: IProfileData;
+    articleDetails: IArticleDetailsSchema;
 
     // Async reducers
     loginForm?: ILoginSchema;
     profile?: IProfileSchema;
+    articleComments?: IArticleCommentsSchema;
 }
 
 export type RootStateKey = keyof IRootState;

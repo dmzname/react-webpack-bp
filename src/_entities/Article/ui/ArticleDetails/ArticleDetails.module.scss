@@ -1,0 +1,39 @@
+.root {
+    width: 100%;
+}
+
+.avatar {
+    margin: 0 auto 50px;
+}
+
+.title {
+    margin-bottom: 10px;
+
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+
+    font-style: italic;
+}
+
+.article-info {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.avatar-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.block {
+    margin-top: 16px;
+}

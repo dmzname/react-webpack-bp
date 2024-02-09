@@ -1,0 +1,20 @@
+.root {
+    position: relative;
+
+    padding: 20px;
+    overflow: auto;
+
+    border: 1px solid var(--primary-color);
+
+    background: var(--code-bg);
+}
+
+.copy-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.copy-icon path {
+    stroke: var(--primary-color);
+}

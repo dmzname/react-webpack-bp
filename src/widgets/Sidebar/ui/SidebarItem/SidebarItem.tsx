@@ -19,12 +19,13 @@ export const SidebarItem = memo(({ item, collapsed }: ISidebarItemProps) => {
     if (item.authOnly && !isAuth) {
         return null;
     }
-    
+
     return (
         <AppLink
             theme={ AppLinkTheme.SECONDARY }
             to={ item.path }
             className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }
+            title={ t(item.text) }
         >
             <item.Icon className={ cls.icon }/>
             <span className={ cls.link }>

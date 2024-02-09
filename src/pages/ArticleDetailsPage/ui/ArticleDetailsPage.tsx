@@ -2,18 +2,45 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPage.module.scss';
 import { memo } from "react";
+import { ArticleDetails } from "_entities/Article";
+import { Text } from "shared/ui/Text/Text";
+import { CommentList } from "features/ArticleCommentList";
+import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { commentsReducer, getComments } from "features/ArticleCommentList/model/slices/articleCommentsSlice";
+import { useSelector } from "react-redux";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import {
+    fetchArticleCommentsById
+} from "features/ArticleCommentList/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { useParams } from "react-router";
 
 interface IArticleDetailsPageProps {
     className?: string;
 }
 
+const reducer: ReducersList = {
+    articleComments: commentsReducer
+};
+
 const ArticleDetailsPage = ({ className }: IArticleDetailsPageProps) => {
     const { t } = useTranslation();
+    const comments = useSelector(getComments.selectAll);
+    const dispatch = useAppDispatch();
+    const { id } = useParams<{ id: string }>();
+
+    useInitialEffect(() => {
+        dispatch(fetchArticleCommentsById(id));
+    });
 
     return (
-        <div className={ classNames(cls.root, {}, [ className ]) }>
-            {t('ARTICLE DETAILS PAGE')}
-        </div>
+        <DynamicModuleLoader reducers={ reducer } removeAfterUnmount>
+            <div className={ classNames(cls.root, {}, [ className ]) }>
+                <ArticleDetails id={ '1' } className={ cls['article-details'] }/>
+                <Text title={ t('Комментарии') } titleStyles={ cls.title }/>
+                <CommentList comments={ comments }/>
+            </div>
+        </DynamicModuleLoader>
     );
 };
 

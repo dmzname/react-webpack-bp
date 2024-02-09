@@ -5,10 +5,12 @@ import { createReducerManager } from "app/providers/StoreProvider/config/reducer
 import { axiosInstance } from "shared/api/api";
 import { Reducer } from "redux";
 import { editProfileReducer } from "features/EditProfileData";
+import { articleDetailsReducer } from "_entities/Article/model/slice/articleDetailsSlice";
 
 const rootReducers: ReducersMapObject<IRootState> = {
     user: userReducer,
-    editProfile: editProfileReducer
+    editProfile: editProfileReducer,
+    articleDetails: articleDetailsReducer,
 };
 
 export function createReduxStore(
