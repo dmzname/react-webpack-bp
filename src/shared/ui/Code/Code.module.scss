@@ -4,7 +4,9 @@
     padding: 20px;
     overflow: auto;
 
-    border: 1px solid var(--primary-color);
+    width: 65%;
+
+    border: 1px solid var(--icon-color);
 
     background: var(--code-bg);
 }
@@ -16,5 +18,5 @@
 }
 
 .copy-icon path {
-    stroke: var(--primary-color);
+    stroke: var(--icon-color);
 }

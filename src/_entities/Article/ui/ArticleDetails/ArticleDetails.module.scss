@@ -26,6 +26,9 @@
 
 .icon {
     margin-right: 8px;
+    path {
+        stroke: var(--icon-color);
+    }
 }
 
 .avatar-wrapper {
@@ -36,4 +39,11 @@
 
 .block {
     margin-top: 16px;
+}
+
+.comments {
+    margin: 50px 0 30px;
+
+    font-weight: 700;
+    font-size: 24px;
 }

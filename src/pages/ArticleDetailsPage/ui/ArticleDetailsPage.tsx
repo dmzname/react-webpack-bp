@@ -25,7 +25,6 @@ const reducer: ReducersList = {
 
 const ArticleDetailsPage = ({ className }: IArticleDetailsPageProps) => {
     const { t } = useTranslation();
-    const comments = useSelector(getComments.selectAll);
     const dispatch = useAppDispatch();
     const { id } = useParams<{ id: string }>();
 
@@ -36,9 +35,7 @@ const ArticleDetailsPage = ({ className }: IArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducer } removeAfterUnmount>
             <div className={ classNames(cls.root, {}, [ className ]) }>
-                <ArticleDetails id={ '1' } className={ cls['article-details'] }/>
-                <Text title={ t('Комментарии') } titleStyles={ cls.title }/>
-                <CommentList comments={ comments }/>
+                <ArticleDetails id={ id || '1' } className={ cls['article-details'] }/>
             </div>
         </DynamicModuleLoader>
     );

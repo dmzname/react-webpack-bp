@@ -23,6 +23,8 @@ import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from "shared/ui/Icon/Icon";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
+import { CommentList } from "features/ArticleCommentList";
+import { getComments } from "features/ArticleCommentList/model/slices/articleCommentsSlice";
 
 interface ArticleDetailsProps {
     className?: string;
@@ -33,7 +35,7 @@ const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
 };
 
-export const ArticleDetails = memo((props: ArticleDetailsProps) => {
+export const  ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { className, id } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -110,7 +112,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <Text
                 align={ TextAlign.CENTER }
-                title={ t('Произошла ошибка при загрузке статьи.') }
+                title={ t('post_download_error') }
             />
         );
     } else {
@@ -138,6 +140,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <Text text={ article?.createdAt }/>
                 </div>
                 {article?.blocks.map(renderBlock)}
+                <Text title={ t('Комментарии') } titleStyles={ cls.comments }/>
+                <CommentList />
             </>
         );
     }
