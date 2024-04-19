@@ -17,7 +17,8 @@
     "test:ui:ok": "npx chromatic --project-token=chpt_aa78bafe13cd258 --auto-accept-changes -b storybook:build",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "chromatic": "npx chromatic --project-token=chpt_aa78bafe13cd258 --auto-accept-changes -b storybook:build"
   },
   "license": "ISC",
   "devDependencies": {
