@@ -14,16 +14,18 @@ interface ISidebarItemProps {
 
 export const SidebarItem = memo(({ item, collapsed }: ISidebarItemProps) => {
     const { t } = useTranslation();
-    const isAuth = useSelector(getUserAuthData);
+    const user = useSelector(getUserAuthData);
 
-    if (item.authOnly && !isAuth) {
+    if (item.authOnly && !user) {
         return null;
     }
+
+    const path = item.path.includes('profile') ? item.path + user?.id : item.path;
 
     return (
         <AppLink
             theme={ AppLinkTheme.SECONDARY }
-            to={ item.path }
+            to={ path }
             className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }
             title={ t(item.text) }
         >

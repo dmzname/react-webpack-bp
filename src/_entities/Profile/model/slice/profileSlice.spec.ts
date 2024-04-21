@@ -26,7 +26,7 @@ describe('profileSlice.test', () => {
             isLoading: false,
             error: 'error'
         };
-        expect(profileReducer(state as IProfileSchema, fetchProfileData.pending(''))).toEqual({
+        expect(profileReducer(state as IProfileSchema, fetchProfileData.pending('1', ''))).toEqual({
             isLoading: true,
             error: undefined
         });
@@ -37,7 +37,7 @@ describe('profileSlice.test', () => {
             isLoading: true,
             data: undefined
         };
-        expect(profileReducer(state as IProfileSchema, fetchProfileData.fulfilled(data, ''))).toEqual({
+        expect(profileReducer(state as IProfileSchema, fetchProfileData.fulfilled(data, '1', ''))).toEqual({
             isLoading: false,
             data
         });

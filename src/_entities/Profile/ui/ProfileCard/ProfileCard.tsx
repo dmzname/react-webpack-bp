@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Edit from 'shared/assets/icons/pen-solid.svg';
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
-import { IProfile, profileActions } from "_entities/Profile";
+import { getProfileData, IProfile, profileActions } from "_entities/Profile";
 import { Loader } from "shared/ui/Loader";
 import { useCallback, useState } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { ProfileEditModal } from 'features/EditProfileData';
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "_entities/User";
 
 interface IProfileCardProps {
     className?: string;
@@ -27,6 +29,9 @@ export const ProfileCard = (props: IProfileCardProps) => {
     const { t } = useTranslation('profile');
     const [ isEditModalOpen, setIsEditModalOpen ] = useState(false);
     const dispatch = useAppDispatch();
+    const authData = useSelector(getUserAuthData);
+    const profile = useSelector(getProfileData);
+    const canEdit = authData?.id === profile?.id;
 
     const onEdit = useCallback(() => {
         setIsEditModalOpen(true);
@@ -85,13 +90,13 @@ export const ProfileCard = (props: IProfileCardProps) => {
                         <Text text={ String(profileData.currency) } textTag={ 'span' }/>
                     </p>
 
-                    <Button
+                    {canEdit && <Button
                         theme={ ButtonTheme.BACKGROUND }
                         className={ cls['edit-info-btn'] }
                         onClick={ onEdit }
                     >
                         {t('Редактировать')}
-                    </Button>
+                    </Button>}
                     <ProfileEditModal isOpen={ isEditModalOpen } onClose={ () => setIsEditModalOpen(false) }/>
                 </div>
             </div>

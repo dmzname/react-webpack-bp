@@ -157,22 +157,16 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2",
+      "text": "asasasa",
+      "id": 1
     },
     {
-      "id": "2",
-      "text": "some comment 2",
       "articleId": "1",
-      "userId": "2"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1"
+      "userId": "2",
+      "text": "hytr",
+      "id": 2
     }
   ],
   "users": [
@@ -191,14 +185,28 @@
       "avatar": "https://lh3.google.com/u/0/d/19j7-U5QMdbn2ZtWBszHfaDmR8TZN01O8=w1920-h1031-iv1"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://lh3.google.com/u/0/d/19j7-U5QMdbn2ZtWBszHfaDmR8TZN01O8=w1920-h1031-iv1"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "User1",
+      "lastname": "asf",
+      "age": 45,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "User1",
+      "avatar": "https://lh3.google.com/u/0/d/19j7-U5QMdbn2ZtWBszHfaDmR8TZN01O8=w1920-h1031-iv1"
+    },
+    {
+      "id": "2",
+      "first": "User2",
+      "lastname": "Dm",
+      "age": 46,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "User2",
+      "avatar": "https://lh3.google.com/u/0/d/19j7-U5QMdbn2ZtWBszHfaDmR8TZN01O8=w1920-h1031-iv1"
+    }
+  ]
 }

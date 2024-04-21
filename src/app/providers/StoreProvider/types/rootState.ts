@@ -5,6 +5,7 @@ import { AxiosInstance } from "axios";
 import { IProfileData } from "features/EditProfileData";
 import { IArticleDetailsSchema } from "_entities/Article";
 import { IArticleCommentsSchema } from "features/ArticleCommentList";
+import { IAddNewComment } from "features/AddNewComment";
 
 export interface IRootState {
     user: IUserSchema;
@@ -15,6 +16,7 @@ export interface IRootState {
     loginForm?: ILoginSchema;
     profile?: IProfileSchema;
     articleComments?: IArticleCommentsSchema;
+    addNewComment?: IAddNewComment;
 }
 
 export type RootStateKey = keyof IRootState;

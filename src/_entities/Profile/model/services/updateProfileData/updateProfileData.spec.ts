@@ -12,6 +12,7 @@ const data = {
     country: Country.Ukraine,
     city: "Odessa",
     username: "admin",
+    id: "1"
 };
 
 describe('fetchProfileData.test', () => {

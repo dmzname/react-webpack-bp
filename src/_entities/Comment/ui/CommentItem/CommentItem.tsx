@@ -5,6 +5,8 @@ import { IComment } from "_entities/Comment";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Text } from "shared/ui/Text/Text";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 interface ICommentItemProps {
     className?: string;
@@ -27,10 +29,10 @@ export const CommentItem = ({ className, comment, isLoading }: ICommentItemProps
 
     return (
         <div className={ classNames(cls.root, {}, [ className ]) }>
-            <div className={ cls['comment-header'] }>
+            <AppLink to={RoutePath.profile + comment?.user.id} className={ cls['comment-header'] }>
                 <Avatar size={ 30 } src={ comment?.user.avatar } className={ cls.avatar }/>
                 <Text title={ comment?.user.username } titleStyles={ cls['user-name'] }/>
-            </div>
+            </AppLink>
             <Text text={ comment?.text }/>
         </div>
     );

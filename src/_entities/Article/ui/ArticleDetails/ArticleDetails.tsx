@@ -24,7 +24,9 @@ import { Icon } from "shared/ui/Icon/Icon";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { CommentList } from "features/ArticleCommentList";
-import { getComments } from "features/ArticleCommentList/model/slices/articleCommentsSlice";
+import { AddNewComment } from "features/AddNewComment";
+import { addCommentForArticle } from "_entities/Article/model/services/addCommentForArticle/addCommentForArticle";
+import { getAddNewCommentText } from "features/AddNewComment/model/selectors/addNewCommentSelectors";
 
 interface ArticleDetailsProps {
     className?: string;
@@ -43,8 +45,12 @@ export const  ArticleDetails = memo((props: ArticleDetailsProps) => {
     const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [ dispatch ]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticleById(id));
+        dispatch(fetchArticleById(id || ''));
     });
 
     const renderBlock = useCallback((block: ArticleBlock) => {
@@ -140,6 +146,7 @@ export const  ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <Text text={ article?.createdAt }/>
                 </div>
                 {article?.blocks.map(renderBlock)}
+                <AddNewComment onSendComment={ onSendComment } />
                 <Text title={ t('Комментарии') } titleStyles={ cls.comments }/>
                 <CommentList />
             </>

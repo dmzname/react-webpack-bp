@@ -80,72 +80,72 @@ export const ProfileEditForm = ({ className, onClose }: IProfileEditModalProps) 
             const res = await dispatch(updateProfileData({ ...formData }));
             if (res.type.includes('fulfilled')) {
                 onClose?.();
-                dispatch(fetchProfileData());
+                dispatch(fetchProfileData(formData?.id || ''));
             }
         })();
     }, [ dispatch, onClose ]);
 
 
     return (
-        <form className={ classNames(cls.root, {}, [ className ]) }>
-            <Text title={ t('Обновите Ваши данные') }/>
+        <form className={classNames(cls.root, {}, [ className ])}>
+            <Text title={t('Обновите Ваши данные')}/>
             <Input
-                value={ formData?.first }
-                placeholder={ t('Ваше имя') }
-                className={ cls.input }
-                onChange={ onEditProfileData }
+                value={formData?.first}
+                placeholder={t('Ваше имя')}
+                className={cls.input}
+                onChange={onEditProfileData}
                 name="first"
             />
             <Input
-                value={ formData?.lastname }
-                placeholder={ t('Ваша фамилия') }
-                className={ cls.input }
-                onChange={ onEditProfileData }
+                value={formData?.lastname}
+                placeholder={t('Ваша фамилия')}
+                className={cls.input}
+                onChange={onEditProfileData}
                 name="lastname"
             />
             <Input
-                value={ formData?.username }
-                placeholder={ t('Введите имя пользователя') }
-                className={ cls.input }
-                onChange={ onEditProfileData }
+                value={formData?.username}
+                placeholder={t('Введите имя пользователя')}
+                className={cls.input}
+                onChange={onEditProfileData}
                 name="username"
             />
             <Input
                 type="number"
-                value={ String(formData?.age) }
-                placeholder={ t('Ваш возраст') }
-                className={ cls.input }
-                onChange={ onEditProfileData }
+                value={String(formData?.age)}
+                placeholder={t('Ваш возраст')}
+                className={cls.input}
+                onChange={onEditProfileData}
                 name="age"
             />
             <Input
-                value={ formData?.city }
-                placeholder={ t('Город') }
-                className={ cls.input }
-                onChange={ onEditProfileData }
+                value={formData?.city}
+                placeholder={t('Город')}
+                className={cls.input}
+                onChange={onEditProfileData}
                 name="city"
             />
             <Input
-                value={ formData?.avatar }
-                placeholder={ t('Введите ссылку на аватар') }
-                className={ cls.input }
-                onChange={ onEditProfileData }
+                value={formData?.avatar}
+                placeholder={t('Введите ссылку на аватар')}
+                className={cls.input}
+                onChange={onEditProfileData}
                 name="avatar"
             />
-            <CurrencySelect value={ formData?.currency } onChange={ onChangeCurrency }/>
-            <CountrySelect value={ formData?.country } onChange={ onChangeCountry }/>
-            <div className={ cls['btn-group'] }>
-                <Button onClick={ () => onSave(formData) }>
+            <CurrencySelect value={formData?.currency} onChange={onChangeCurrency}/>
+            <CountrySelect value={formData?.country} onChange={onChangeCountry}/>
+            <div className={cls['btn-group']}>
+                <Button onClick={() => onSave(formData)}>
                     {t('Сохранить')}
                 </Button>
-                <Button onClick={ onCanceled }>
+                <Button onClick={onCanceled}>
                     {t('Отменить')}
                 </Button>
             </div>
-            <div className={ cls['result-block'] }>
+            <div className={cls['result-block']}>
                 {isLoading && <Loader/>}
                 {!!errors?.length && errors.map((err, i) => (
-                    <Text key={ i } text={ err } theme={ TextTheme.ERROR }/>
+                    <Text key={i} text={err} theme={TextTheme.ERROR}/>
                 ))}
             </div>
         </form>

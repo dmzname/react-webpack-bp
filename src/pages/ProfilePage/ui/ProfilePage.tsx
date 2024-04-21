@@ -13,6 +13,8 @@ import { memo, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { editProfileActions } from "features/EditProfileData";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
+import { useParams } from "react-router";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -25,16 +27,17 @@ interface ProfilePageProps {
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const { id } = useParams<{ id: string }>();
 
     const profileData = useSelector(getProfileData);
     const profileError = useSelector(getProfileError);
     const profileIsLoading = useSelector(getProfileIsLoading);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if(id) {
+            dispatch(fetchProfileData(id || ''));
         }
-    }, [ dispatch ]);
+    });
 
     useEffect(() => {
         if (profileData)
@@ -42,12 +45,12 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     }, [ dispatch, profileData ]);
 
     return (
-        <DynamicModuleLoader reducers={ reducers } removeAfterUnmount>
-            <div className={ classNames('', {}, [ className ]) }>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <div className={classNames('', {}, [ className ])}>
                 <ProfileCard
-                    profileData={ profileData }
-                    profileError={ profileError }
-                    profileIsLoading={ profileIsLoading }
+                    profileData={profileData}
+                    profileError={profileError}
+                    profileIsLoading={profileIsLoading}
                 />
             </div>
         </DynamicModuleLoader>
