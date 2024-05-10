@@ -3,7 +3,7 @@ import { AboutPage } from "pages/AboutPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { ProfilePage } from "pages/ProfilePage";
 import { RouteObject } from "react-router";
-import { RequireAuth } from "app/providers/routes/RequireAuth";
+// import { RequireAuth } from "app/providers/routes/RequireAuth";
 import { ArticlesPage } from "pages/ArticlesPage";
 import { ArticleDetailsPage } from "pages/ArticleDetailsPage";
 
@@ -40,15 +40,15 @@ export const routeConfig: Record<AppRoutes, RouteObject> = {
     },
     [AppRoutes.PROFILE]: {
         path: RoutePath.profile + ':id',
-        element: <RequireAuth children={ <ProfilePage/> }/>, // eslint-disable-line react/no-children-prop
+        element: <ProfilePage/>, // eslint-disable-line react/no-children-prop
     },
     [AppRoutes.ARTICLES]: {
         path: RoutePath.articles,
-        element: <RequireAuth children={ <ArticlesPage/> }/>, // eslint-disable-line react/no-children-prop
+        element: <ArticlesPage />, // eslint-disable-line react/no-children-prop
     },
     [AppRoutes.ARTICLE_DETAILS]: {
         path: RoutePath.article_details + ':id',
-        element: <RequireAuth children={ <ArticleDetailsPage/> }/>, // eslint-disable-line react/no-children-prop
+        element: <ArticleDetailsPage />, // eslint-disable-line react/no-children-prop
     },
 
     // last route

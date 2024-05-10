@@ -11,8 +11,8 @@ import { useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "_entities/User";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
-import { SidebarItemsList } from "../../model/items";
 import { useNavigate } from "react-router";
+import { getSidebarItems } from "widgets/Sidebar/model/selectors/getSidebarItems";
 
 interface SidebarProps {
     className?: string;
@@ -25,14 +25,15 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const sidebarItemsList = useSelector(getSidebarItems);
 
-    const itemsList = useMemo(() => SidebarItemsList.map((item) => (
+    const itemsList = useMemo(() => sidebarItemsList.map((item) => (
         <SidebarItem
             item={ item }
             collapsed={ collapsed }
             key={ item.path }
         />
-    )), [ collapsed ]);
+    )), [ sidebarItemsList, collapsed ]);
 
     const onToggleSidebar = () => {
         setCollapsed((prev) => !prev);

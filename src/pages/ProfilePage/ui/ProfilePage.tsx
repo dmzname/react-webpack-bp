@@ -45,12 +45,12 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     }, [ dispatch, profileData ]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [ className ])}>
+        <DynamicModuleLoader reducers={ reducers } removeAfterUnmount>
+            <div className={ classNames('', {}, [ className ]) }>
                 <ProfileCard
-                    profileData={profileData}
-                    profileError={profileError}
-                    profileIsLoading={profileIsLoading}
+                    profileData={ profileData }
+                    profileError={ profileError }
+                    profileIsLoading={ profileIsLoading }
                 />
             </div>
         </DynamicModuleLoader>

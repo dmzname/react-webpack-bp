@@ -6,6 +6,7 @@ import { IProfileData } from "features/EditProfileData";
 import { IArticleDetailsSchema } from "_entities/Article";
 import { IArticleCommentsSchema } from "features/ArticleCommentList";
 import { IAddNewComment } from "features/AddNewComment";
+import { IArticlePageSchema } from "pages/ArticlesPage";
 
 export interface IRootState {
     user: IUserSchema;
@@ -17,6 +18,7 @@ export interface IRootState {
     profile?: IProfileSchema;
     articleComments?: IArticleCommentsSchema;
     addNewComment?: IAddNewComment;
+    articlesPage?: IArticlePageSchema;
 }
 
 export type RootStateKey = keyof IRootState;

@@ -29,7 +29,7 @@ export const CommentItem = ({ className, comment, isLoading }: ICommentItemProps
 
     return (
         <div className={ classNames(cls.root, {}, [ className ]) }>
-            <AppLink to={RoutePath.profile + comment?.user.id} className={ cls['comment-header'] }>
+            <AppLink to={ RoutePath.profile + comment?.user.id } className={ cls['comment-header'] }>
                 <Avatar size={ 30 } src={ comment?.user.avatar } className={ cls.avatar }/>
                 <Text title={ comment?.user.username } titleStyles={ cls['user-name'] }/>
             </AppLink>

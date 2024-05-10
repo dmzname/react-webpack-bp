@@ -3,9 +3,9 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './SidebarItem.module.scss';
-import { ISidebarItem } from '../../model/items';
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "_entities/User";
+import { ISidebarItem } from "widgets/Sidebar/model/types/sidebar";
 
 interface ISidebarItemProps {
     item: ISidebarItem;
@@ -20,12 +20,10 @@ export const SidebarItem = memo(({ item, collapsed }: ISidebarItemProps) => {
         return null;
     }
 
-    const path = item.path.includes('profile') ? item.path + user?.id : item.path;
-
     return (
         <AppLink
             theme={ AppLinkTheme.SECONDARY }
-            to={ path }
+            to={ item.path }
             className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }
             title={ t(item.text) }
         >

@@ -2,5 +2,5 @@ export {
     ArticleDetails,
 } from './ui/ArticleDetails/ArticleDetails';
 
-export type { Article } from './model/types/article';
-export type { IArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export { Article, ArticleView } from './model/types/article';
+export { IArticleDetailsSchema } from './model/types/articleDetailsSchema';

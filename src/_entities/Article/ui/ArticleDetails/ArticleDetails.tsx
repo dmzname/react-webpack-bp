@@ -26,7 +26,6 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { CommentList } from "features/ArticleCommentList";
 import { AddNewComment } from "features/AddNewComment";
 import { addCommentForArticle } from "_entities/Article/model/services/addCommentForArticle/addCommentForArticle";
-import { getAddNewCommentText } from "features/AddNewComment/model/selectors/addNewCommentSelectors";
 
 interface ArticleDetailsProps {
     className?: string;
@@ -146,9 +145,9 @@ export const  ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <Text text={ article?.createdAt }/>
                 </div>
                 {article?.blocks.map(renderBlock)}
-                <AddNewComment onSendComment={ onSendComment } />
                 <Text title={ t('Комментарии') } titleStyles={ cls.comments }/>
                 <CommentList />
+                {/*<AddNewComment onSendComment={ onSendComment } />*/}
             </>
         );
     }

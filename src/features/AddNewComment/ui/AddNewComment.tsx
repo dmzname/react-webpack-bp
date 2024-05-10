@@ -25,7 +25,7 @@ const AddNewComment = ({ className, onSendComment }: IAddNewCommentProps) => {
     const text = useSelector(getAddNewCommentText);
     const error = useSelector(getAddNewCommentError);
 
-    const onCommentTextChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const onCommentTextChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
         dispatch(addNewCommentActions.setText(e.target.value));
     }, [ dispatch ]);
 
@@ -37,7 +37,7 @@ const AddNewComment = ({ className, onSendComment }: IAddNewCommentProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <div className={ classNames(cls.root, {}, [ className ]) }>
-                <Input
+                <textarea
                     placeholder={ t('Введите текст комментария') }
                     value={ text || '' }
                     onChange={ onCommentTextChange }
