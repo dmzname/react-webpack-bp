@@ -3,17 +3,15 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPage.module.scss';
 import { memo } from "react";
 import { ArticleDetails } from "_entities/Article";
-import { Text } from "shared/ui/Text/Text";
-import { CommentList } from "features/ArticleCommentList";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { commentsReducer, getComments } from "features/ArticleCommentList/model/slices/articleCommentsSlice";
-import { useSelector } from "react-redux";
+import { commentsReducer } from "features/ArticleCommentList/model/slices/articleCommentsSlice";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import {
     fetchArticleCommentsById
 } from "features/ArticleCommentList/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { useParams } from "react-router";
+import { Page } from "shared/ui/Page";
 
 interface IArticleDetailsPageProps {
     className?: string;
@@ -34,9 +32,9 @@ const ArticleDetailsPage = ({ className }: IArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducer } removeAfterUnmount>
-            <div className={ classNames(cls.root, {}, [ className ]) }>
+            <Page className={ classNames(cls.root, {}, [ className ]) }>
                 <ArticleDetails id={ id || '' } className={ cls['article-details'] }/>
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

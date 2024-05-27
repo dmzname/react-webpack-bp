@@ -16,11 +16,9 @@ export const Layout = (props: ILayoutProps) => {
             {navbarSlot && navbarSlot}
             <div className="content-page">
                 {sidebarSlot && sidebarSlot}
-                <div className="page-wrapper">
-                    <Suspense fallback={ <PageLoader/> }>
-                        <Outlet/>
-                    </Suspense>
-                </div>
+                <Suspense fallback={ <PageLoader/> }>
+                    <Outlet/>
+                </Suspense>
             </div>
         </div>
     );

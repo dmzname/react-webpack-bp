@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import { editProfileActions } from "features/EditProfileData";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { useParams } from "react-router";
+import { Page } from "shared/ui/Page";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -46,13 +47,13 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount>
-            <div className={ classNames('', {}, [ className ]) }>
+            <Page className={ classNames('', {}, [ className ]) }>
                 <ProfileCard
                     profileData={ profileData }
                     profileError={ profileError }
                     profileIsLoading={ profileIsLoading }
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

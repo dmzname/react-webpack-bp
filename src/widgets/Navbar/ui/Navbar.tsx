@@ -10,9 +10,9 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
     return (
-        <div className={ classNames(cls.root, {}, [ className ]) }>
+        <header className={ classNames(cls.root, {}, [ className ]) }>
             <LangSwitcher className={ cls['lang-switcher'] }/>
             <ThemeSwitcher className={ cls['theme-switcher'] }/>
-        </div>
+        </header>
     );
 });

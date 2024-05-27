@@ -60,9 +60,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? <RightArrow className={ cls.arrow }/> : <LeftArrow className={ cls.arrow }/>}
             </Button>
-            <div className={ cls.items }>
+            <nav className={ cls.items }>
                 {itemsList}
-            </div>
+            </nav>
             {authData ? (
                 <Button onClick={ logoutHandler } className={ cls['login-btn'] } theme={ ButtonTheme.CLEAR }>
                     <LogInIcon className={ cls.icon }/>

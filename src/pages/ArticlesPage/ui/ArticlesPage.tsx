@@ -12,6 +12,8 @@ import { useSelector } from "react-redux";
 import { ArticleViewSelector } from "features/ArticleViewSelector/ArticleViewSelector";
 import { getArticlesPageView } from "pages/ArticlesPage";
 import { ArticleView } from "_entities/Article";
+import { Page } from "shared/ui/Page";
+import { fetchNextArticlesList } from "pages/ArticlesPage/model/services/fetchNextArticlesList/fetchNextArticlesList";
 
 interface IArticlesPageProps {
     className?: string;
@@ -27,9 +29,15 @@ const ArticlesPage = ({ className }: IArticlesPageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const view = useSelector(getArticlesPageView);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesList());
+    }, [ dispatch ]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticlesList());
         dispatch(articlePageAction.initState());
+        dispatch(fetchArticlesList({
+            page: 1,
+        }));
     });
 
     const onChangeView = useCallback((view: ArticleView) => {
@@ -38,10 +46,10 @@ const ArticlesPage = ({ className }: IArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames(cls.root, {}, [ className ]) }>
+            <Page onScrollEnd={ onLoadNextPart } className={ classNames(cls.root, {}, [ className ]) }>
                 <ArticleViewSelector veiw={ view } onViewClick={ onChangeView }/>
                 <ArticleList view={ view } articles={ articles } />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
